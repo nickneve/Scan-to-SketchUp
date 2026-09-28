@@ -89,7 +89,7 @@ TEST_CASE("corners are mitred and interior walls stop at the face they meet") {
 }
 
 TEST_CASE("every wall is a closed solid with the openings removed") {
-    for (const char* name : {"01-rectangular-room", "02-l-shaped-room", "03-three-rooms-hallway"}) {
+    for (const char* name : {"01-rectangular-room", "02-l-shaped-room", "03-three-rooms-hallway", "04-angled-wall"}) {
         CAPTURE(name);
         const Plan plan = normalize_origin(test::fixture(name));
         const Level& level = plan.levels[0];
@@ -178,4 +178,19 @@ TEST_CASE("a wall with a door and several windows stays solid") {
     double expected = signed_area(fps.at("W3").polygon) * 2438;
     for (const WallCut& c : cuts) expected -= (c.u1 - c.u0) * (c.z1 - c.z0) * w3.thickness;
     CHECK(check_solid(faces).volume == doctest::Approx(expected).epsilon(1e-9));
+}
+
+TEST_CASE("angled walls: 45 degree corner joins tile and stay solid") {
+    const double d = 82.5 * std::sqrt(2.0);
+    check_tiling(layout(test::fixture("04-angled-wall")),
+                 {{0, 0}, {3988, 0}, {3988, 6201 + d - 3988}, {6201 + d - 3378, 3378}, {0, 3378}});
+    const Scene scene = build_scene(test::fixture("04-angled-wall"));
+    for (const Group& g : test::level_group(scene).find("Walls")->groups) {
+        const SolidReport r = check_solid(g.faces);
+        for (const auto& p : r.problems) MESSAGE(p);
+        CHECK_MESSAGE(r.closed, g.name);
+    }
+    // The angled wall faces northeast.
+    const auto& walls = test::level_group(scene).find("Walls")->groups;
+    CHECK(std::any_of(walls.begin(), walls.end(), [](const Group& g) { return g.name == "Wall - Study Northeast"; }));
 }

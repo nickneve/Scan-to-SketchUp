@@ -19,7 +19,7 @@ std::vector<std::string> child_names(const Group& g) {
     return out;
 }
 
-const char* kFixtures[] = {"01-rectangular-room", "02-l-shaped-room", "03-three-rooms-hallway"};
+const char* kFixtures[] = {"01-rectangular-room", "02-l-shaped-room", "03-three-rooms-hallway", "04-angled-wall"};
 
 }  // namespace
 
