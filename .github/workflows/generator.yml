@@ -1,0 +1,31 @@
+name: Generator build and tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -S skp-generator -B build -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build build --config Release --parallel
+      - name: Test
+        run: ctest --test-dir build -C Release --output-on-failure
+      - name: Generate previews from the fixtures
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          mkdir -p previews
+          for f in fixtures/plans/*.json; do ./build/housegen "$f" --out previews; done
+      - uses: actions/upload-artifact@v4
+        if: matrix.os == 'ubuntu-latest'
+        with:
+          name: fixture-previews
+          path: previews
