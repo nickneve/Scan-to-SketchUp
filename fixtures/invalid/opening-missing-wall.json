@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "0.1",
+  "units": "mm",
+  "displayUnits": "imperial",
+  "source": {
+    "type": "manual"
+  },
+  "orientation": {
+    "northAngleDeg": 17.5,
+    "headingSource": "manual",
+    "address": "123 Main St"
+  },
+  "defaults": {
+    "region": "US",
+    "interiorWallThickness": 114,
+    "exteriorWallThickness": 165,
+    "ceilingHeight": 2438
+  },
+  "levels": [
+    {
+      "id": "L1",
+      "name": "Main Floor",
+      "elevation": 0,
+      "floorToCeiling": 2438,
+      "walls": [
+        {
+          "id": "W1",
+          "start": {
+            "x": 82.5,
+            "y": 82.5
+          },
+          "end": {
+            "x": 3905.5,
+            "y": 82.5
+          },
+          "thickness": 165,
+          "isExterior": true
+        },
+        {
+          "id": "W2",
+          "start": {
+            "x": 3905.5,
+            "y": 82.5
+          },
+          "end": {
+            "x": 3905.5,
+            "y": 3295.5
+          },
+          "thickness": 165,
+          "isExterior": true
+        },
+        {
+          "id": "W3",
+          "start": {
+            "x": 3905.5,
+            "y": 3295.5
+          },
+          "end": {
+            "x": 82.5,
+            "y": 3295.5
+          },
+          "thickness": 165,
+          "isExterior": true
+        },
+        {
+          "id": "W4",
+          "start": {
+            "x": 82.5,
+            "y": 3295.5
+          },
+          "end": {
+            "x": 82.5,
+            "y": 82.5
+          },
+          "thickness": 165,
+          "isExterior": true
+        }
+      ],
+      "openings": [
+        {
+          "id": "D1",
+          "wallId": "W9",
+          "type": "door",
+          "offsetFromStart": 1000,
+          "width": 914,
+          "height": 2032,
+          "sillHeight": 0,
+          "operation": "hinged",
+          "swing": {
+            "hingeEnd": "start",
+            "openSide": "left"
+          }
+        },
+        {
+          "id": "N1",
+          "wallId": "W3",
+          "type": "window",
+          "offsetFromStart": 1454,
+          "width": 914,
+          "height": 1219,
+          "sillHeight": 914,
+          "operation": "double-hung"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "R1",
+          "name": "Office",
+          "type": "office",
+          "boundaryWallIds": [
+            "W1",
+            "W2",
+            "W3",
+            "W4"
+          ]
+        }
+      ]
+    }
+  ],
+  "measurements": [
+    {
+      "id": "M1",
+      "targetId": "W1",
+      "field": "length",
+      "face": "left",
+      "roomId": "R1",
+      "value": 3658,
+      "source": "manual",
+      "note": "12 ft inside face"
+    }
+  ]
+}

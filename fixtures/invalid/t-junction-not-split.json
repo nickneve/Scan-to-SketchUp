@@ -1,0 +1,319 @@
+{
+  "schemaVersion": "0.1",
+  "units": "mm",
+  "displayUnits": "imperial",
+  "source": {
+    "type": "manual"
+  },
+  "orientation": {
+    "northAngleDeg": 205,
+    "headingSource": "manual",
+    "address": "123 Main St"
+  },
+  "defaults": {
+    "region": "US",
+    "interiorWallThickness": 114,
+    "exteriorWallThickness": 165,
+    "ceilingHeight": 2438
+  },
+  "levels": [
+    {
+      "id": "L1",
+      "name": "Main Floor",
+      "elevation": 0,
+      "floorToCeiling": 2438,
+      "walls": [
+        {
+          "id": "E1",
+          "start": {
+            "x": 82.5,
+            "y": 82.5
+          },
+          "end": {
+            "x": 9391.5,
+            "y": 82.5
+          },
+          "thickness": 165,
+          "isExterior": true
+        },
+        {
+          "id": "E4",
+          "start": {
+            "x": 9391.5,
+            "y": 82.5
+          },
+          "end": {
+            "x": 9391.5,
+            "y": 3500
+          },
+          "thickness": 165,
+          "isExterior": true
+        },
+        {
+          "id": "E5",
+          "start": {
+            "x": 9391.5,
+            "y": 3500
+          },
+          "end": {
+            "x": 9391.5,
+            "y": 6343.5
+          },
+          "thickness": 165,
+          "isExterior": true
+        },
+        {
+          "id": "E6",
+          "start": {
+            "x": 9391.5,
+            "y": 6343.5
+          },
+          "end": {
+            "x": 5700,
+            "y": 6343.5
+          },
+          "thickness": 165,
+          "isExterior": true
+        },
+        {
+          "id": "E7",
+          "start": {
+            "x": 5700,
+            "y": 6343.5
+          },
+          "end": {
+            "x": 4500,
+            "y": 6343.5
+          },
+          "thickness": 165,
+          "isExterior": true
+        },
+        {
+          "id": "E8",
+          "start": {
+            "x": 4500,
+            "y": 6343.5
+          },
+          "end": {
+            "x": 82.5,
+            "y": 6343.5
+          },
+          "thickness": 165,
+          "isExterior": true
+        },
+        {
+          "id": "E9",
+          "start": {
+            "x": 82.5,
+            "y": 6343.5
+          },
+          "end": {
+            "x": 82.5,
+            "y": 82.5
+          },
+          "thickness": 165,
+          "isExterior": true
+        },
+        {
+          "id": "I1",
+          "start": {
+            "x": 4500,
+            "y": 82.5
+          },
+          "end": {
+            "x": 4500,
+            "y": 3000
+          },
+          "thickness": 114,
+          "isExterior": false
+        },
+        {
+          "id": "S1",
+          "kind": "separator",
+          "start": {
+            "x": 4500,
+            "y": 3000
+          },
+          "end": {
+            "x": 4500,
+            "y": 6343.5
+          },
+          "thickness": 0,
+          "isExterior": false
+        },
+        {
+          "id": "I2",
+          "start": {
+            "x": 5700,
+            "y": 82.5
+          },
+          "end": {
+            "x": 5700,
+            "y": 3500
+          },
+          "thickness": 114,
+          "isExterior": false
+        },
+        {
+          "id": "I3",
+          "start": {
+            "x": 5700,
+            "y": 3500
+          },
+          "end": {
+            "x": 5700,
+            "y": 6343.5
+          },
+          "thickness": 114,
+          "isExterior": false
+        },
+        {
+          "id": "I4",
+          "start": {
+            "x": 5700,
+            "y": 3500
+          },
+          "end": {
+            "x": 9391.5,
+            "y": 3500
+          },
+          "thickness": 114,
+          "isExterior": false
+        }
+      ],
+      "openings": [
+        {
+          "id": "D1",
+          "wallId": "E1",
+          "type": "door",
+          "offsetFromStart": 4560.5,
+          "width": 914,
+          "height": 2032,
+          "sillHeight": 0,
+          "operation": "hinged",
+          "swing": {
+            "hingeEnd": "start",
+            "openSide": "left"
+          }
+        },
+        {
+          "id": "D2",
+          "wallId": "I2",
+          "type": "door",
+          "offsetFromStart": 1500,
+          "width": 813,
+          "height": 2032,
+          "sillHeight": 0,
+          "operation": "hinged",
+          "swing": {
+            "hingeEnd": "end",
+            "openSide": "right"
+          }
+        },
+        {
+          "id": "D3",
+          "wallId": "I3",
+          "type": "door",
+          "offsetFromStart": 600,
+          "width": 762,
+          "height": 2032,
+          "sillHeight": 0,
+          "operation": "hinged",
+          "swing": {
+            "hingeEnd": "start",
+            "openSide": "right"
+          }
+        },
+        {
+          "id": "N1",
+          "wallId": "E1",
+          "type": "window",
+          "offsetFromStart": 1500,
+          "width": 1219,
+          "height": 1219,
+          "sillHeight": 914,
+          "operation": "double-hung"
+        },
+        {
+          "id": "N2",
+          "wallId": "E4",
+          "type": "window",
+          "offsetFromStart": 1000,
+          "width": 914,
+          "height": 1219,
+          "sillHeight": 914,
+          "operation": "double-hung"
+        },
+        {
+          "id": "N3",
+          "wallId": "E6",
+          "type": "window",
+          "offsetFromStart": 1500,
+          "width": 610,
+          "height": 610,
+          "sillHeight": 1219,
+          "operation": "fixed"
+        }
+      ],
+      "rooms": [
+        {
+          "id": "R1",
+          "name": "Living Room",
+          "type": "living",
+          "boundaryWallIds": [
+            "E1",
+            "I1",
+            "S1",
+            "E8",
+            "E9"
+          ]
+        },
+        {
+          "id": "R2",
+          "name": "Hallway",
+          "type": "hallway",
+          "boundaryWallIds": [
+            "I2",
+            "I3",
+            "E7",
+            "S1",
+            "I1"
+          ]
+        },
+        {
+          "id": "R3",
+          "name": "Bedroom",
+          "type": "bedroom",
+          "boundaryWallIds": [
+            "E4",
+            "I4",
+            "I2"
+          ]
+        },
+        {
+          "id": "R4",
+          "name": "Bathroom",
+          "type": "bathroom",
+          "boundaryWallIds": [
+            "I4",
+            "E5",
+            "E6",
+            "I3"
+          ]
+        }
+      ]
+    }
+  ],
+  "measurements": [
+    {
+      "id": "M1",
+      "targetId": "I4",
+      "field": "length",
+      "face": "left",
+      "roomId": "R4",
+      "value": 3552,
+      "source": "laser",
+      "note": "Bathroom front wall, inside face"
+    }
+  ]
+}

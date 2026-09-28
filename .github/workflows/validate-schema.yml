@@ -1,0 +1,19 @@
+name: Validate HousePlan fixtures
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r schema/requirements.txt
+      - name: Valid fixtures pass
+        run: python schema/validate.py fixtures/plans
+      - name: Invalid fixtures are rejected
+        run: python schema/validate.py --expect-invalid fixtures/invalid

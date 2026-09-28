@@ -1,0 +1,19 @@
+{
+  "_comment": "Defaults for new plans, chosen from the address's country (and later state). Millimeters. Users can override any value per wall or room.",
+  "regions": {
+    "US": {
+      "displayUnits": "imperial",
+      "interiorWallThickness": 114,
+      "exteriorWallThickness": 165,
+      "ceilingHeight": 2438,
+      "_notes": "2x4 stud + 1/2 in drywall both sides = 4.5 in. 2x6 exterior with drywall, sheathing, siding ~ 6.5 in. 8 ft ceiling."
+    },
+    "default": {
+      "displayUnits": "metric",
+      "interiorWallThickness": 100,
+      "exteriorWallThickness": 300,
+      "ceilingHeight": 2500,
+      "_notes": "Placeholder until more regions are researched."
+    }
+  }
+}

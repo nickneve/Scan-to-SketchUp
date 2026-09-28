@@ -1,0 +1,19 @@
+# SketchUp SDK is licensed separately; never commit it
+third_party/sketchup-sdk/
+
+# Build output
+build/
+out/
+*.skp
+!fixtures/**/*.skp
+*.skb
+
+# Python
+__pycache__/
+.venv/
+
+# Editors / OS
+.vs/
+.vscode/
+.DS_Store
+Thumbs.db
