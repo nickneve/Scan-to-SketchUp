@@ -1,5 +1,5 @@
 # SketchUp SDK is licensed separately; never commit it
-third_party/sketchup-sdk/
+**/sketchup-sdk/
 
 # Build output
 build/
