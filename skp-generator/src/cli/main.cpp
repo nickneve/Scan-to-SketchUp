@@ -2,7 +2,7 @@
 //
 //   housegen PLAN.json [--out DIR] [--obj] [--svg] [--html] [--report] [--skp]
 //
-// With no format flags, writes every preview. --skp needs the SketchUp C SDK (not yet linked).
+// With no format flags, writes every preview. --skp needs a build configured with the SketchUp C SDK.
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -12,6 +12,9 @@
 
 #include "build.hpp"
 #include "exporters.hpp"
+#if S2S_HAVE_SKP
+#include "skp_writer.hpp"
+#endif
 
 namespace fs = std::filesystem;
 
@@ -57,8 +60,14 @@ int main(int argc, char** argv) {
         const std::string stem = fs::path(planPath).stem().string();
 
         if (skp) {
-            std::cerr << "housegen: .skp output needs the SketchUp C SDK, which isn't linked into this build yet\n";
+#if S2S_HAVE_SKP
+            const fs::path p = outDir / (stem + ".skp");
+            s2s::write_skp(scene, p.string());
+            std::cout << "wrote " << p.string() << "\n";
+#else
+            std::cerr << "housegen: .skp output needs the SketchUp C SDK; configure with -DS2S_SKETCHUP_SDK_DIR=<sdk>\n";
             return 3;
+#endif
         }
         if (obj) {
             const fs::path p = outDir / (stem + ".obj");

@@ -210,6 +210,14 @@ The biggest early risk is the older Mac: current Xcode versions require a recent
 - **Units.** Imperial display by default with a metric option; component names follow the display unit (`Door 32x80` or `Door 813x2032`).
 - **Dimensions.** Blueprint-style: inside dimensions for every room plus overall exterior dimensions; users can edit either.
 
+**2026-09-27 (Phase 1 geometry decisions)**
+
+- **Dimensions:** blueprint standard plus opening locations. Room inside dimensions, exterior strings per side (openings, wall segments, overall), and strings locating doors/windows in interior walls.
+- **Doors and windows:** simple frame plus door leaf or glass pane; no trim or casing.
+- **Wall names:** room plus compass side (`Wall - Office North`); shared interior walls list both rooms (`Wall - Bedroom / Hallway`).
+- **New tag:** `Door Swings`, visible by default, holding plan-view door swing arcs.
+- **Libraries:** nlohmann/json and doctest vendored in `skp-generator/third_party` (MIT).
+
 ## Instructions for Claude Code
 
 Start with Phase 0 and work one phase at a time, stopping at each gate for the owner to verify on their own house.
