@@ -4,9 +4,18 @@ iOS app that turns a LiDAR scan (or import) of a home into a clean, professional
 
 ## Current phase
 
-**Phase 0 · Foundations** (on Windows). Done: brief, HousePlan JSON Schema v0.1, 3 fixture plans, validator, CI workflow.
-Remaining: push to GitHub so CI runs (gate), Swift `Codable` types (on the Mac), Mac/Xcode check (on the Mac).
-Next: **Phase 1 · `.skp` generator** using the SketchUp C SDK (owner must request SDK access at developer.sketchup.com; needs Visual Studio Build Tools + CMake on Windows).
+**Phase 0 · Foundations** — gate passed 2026-09-27 (CI green on GitHub). Built: brief, HousePlan JSON Schema v0.1, 3 fixture plans, validator + 13 invalid fixtures, CI workflow.
+Deferred to the Mac: Swift `Codable` types, Mac/Xcode check.
+
+**Phase 1 · `.skp` generator** — next. SketchUp C SDK access requested 2026-09-27, awaiting reply.
+
+Repo: https://github.com/nickneve/Scan-to-SketchUp (public — never commit SDK files).
+
+## Windows toolchain
+
+Visual Studio Community 2026 (MSVC 19.51) with its bundled CMake and Ninja; neither is on PATH. Build from a shell initialized by
+`"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\Tools\VsDevCmd.bat" -arch=x64`.
+Keep build directories on short paths: CMake warns when object paths exceed 250 characters.
 
 Work one phase at a time; stop at each gate for the owner to verify on their own house.
 
